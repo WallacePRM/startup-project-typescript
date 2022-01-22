@@ -1,0 +1,22 @@
+
+
+.search-input {
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.search-input i {
+    padding: 0 5px;
+}
+
+.search-input input {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    outline: none;
+    flex: 1;
+}
