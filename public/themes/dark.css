@@ -1,0 +1,10 @@
+[theme="dark"] {
+    --main-color: 34, 34, 34;
+    --secundary-color: 24, 24, 24;
+
+    --text-color: 255, 255, 255;
+}
+
+[theme="dark"] .btn {
+    background: linear-gradient(160deg, rgb(var(--main-color)) 50%, rgb(var(--secundary-color)) 50%);
+}

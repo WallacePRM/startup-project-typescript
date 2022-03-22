@@ -1,0 +1,22 @@
+.c-app {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--text-color));
+    font-size: 1.4em;
+}
+
+.c-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.c-footer {
+    font-size: .875rem;
+    color: #aaa;
+}

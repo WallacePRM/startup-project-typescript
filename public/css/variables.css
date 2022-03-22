@@ -1,0 +1,12 @@
+:root {
+    --main-color: 255, 255, 255;
+    --secundary-color: 240, 240, 245;
+
+    --text-color: 34, 34, 34;
+    --border-color: 220, 220, 225;
+
+    --accent-color: var(--blue-color);
+    --green-color: 0, 128, 0;
+    --red-color: 128, 0, 0;
+    --blue-color: 78, 130, 225;
+}

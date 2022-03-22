@@ -1,0 +1,10 @@
+.c-clock {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-clock__time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

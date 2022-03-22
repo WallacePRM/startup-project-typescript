@@ -1,4 +1,8 @@
 const path = require('path');
+const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
+
+const { GenerateSW } = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -29,12 +33,26 @@ function getPlugins({ isDev, isProd }) {
 
     const plugins = [
         new HtmlWebpackPlugin({
-            template: path.resolve('src', 'index.html')
-        })
+            template: path.resolve('public', 'index.html')
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        new CopyPlugin({
+            patterns: [
+              { from: "public/manifest.json", to: "." },
+              { from: "public/favicon.ico", to: "." },
+              { from: "public/img/logo*", to: () => "./assets/img/[name][ext]" },
+            ],
+        }),
     ];
 
     if (isProd) {
         plugins.push(new MiniCssExtractPlugin());
+        plugins.push(new GenerateSW({
+            maximumFileSizeToCacheInBytes: 1024 * 1024 * 10
+        }));
     }
 
     return plugins;
@@ -49,9 +67,17 @@ function getRules({ isDev, isProd }) {
             exclude: /node_modules/
         },
         {
+            // Permitir usar modulos CSS
             test: /\.css$/,
             use: [ isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
+            include:  /\.module\.css$/i,
             exclude: /node_modules/
+        },
+        {
+            // Permitir usar CSS
+            test: /\.css$/,
+            use: [ isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
+            exclude: [ /node_modules/, /\.module\.css$/i ]
         },
         {
             test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,

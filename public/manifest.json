@@ -1,0 +1,19 @@
+{
+  "name": "Get Started",
+  "icons": [
+    {
+      "src": "assets/img/logo192.svg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/img/logo512.svg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#fff"
+}

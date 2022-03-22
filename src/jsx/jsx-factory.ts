@@ -35,6 +35,10 @@
         img: HTMLAttributs;
         header: HTMLAttributs;
         section: HTMLAttributs;
+        svg: HTMLAttributs;
+        circle: HTMLAttributs;
+        path: HTMLAttributs;
+        g: HTMLAttributs;
         div: HTMLAttributs;
         small: HTMLAttributs;
         button: HTMLAttributs;
